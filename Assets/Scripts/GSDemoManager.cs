@@ -114,13 +114,11 @@ public class GSDemoManager : Singleton<GSDemoManager>
         };
 
 #if UNITY_IOS && !UNITY_EDITOR
-        dP = GameObject.FindGameObjectWithTag("GSDemoManager").AddComponent<IOSPlatform>();
-		GS.Initialise(dP);
+        dP = GameObject.FindGameObjectWithTag("GSDemoManager").GetComponent<IOSPlatform>();
 #else
-        dP = GameObject.FindGameObjectWithTag("GSDemoManager").AddComponent<DefaultPlatform>();
-        GS.Initialise(dP);
+        dP = GameObject.FindGameObjectWithTag("GSDemoManager").GetComponent<DefaultPlatform>();
 #endif
-
+		GS.Initialise(dP);
     }
 
     static public bool Connected()
